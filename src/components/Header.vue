@@ -8,12 +8,14 @@
     <input type="text"
     class="form-control"
     placeholder="cerca"
-    v-model="search"
+    v-model="search" 
+    @keyup.enter="MovieDaCercare"
     >
+    <!-- al keyuip.enter richiamo la funzione MovieDaCercare -->
     <button
-    @click="$emit('Search', search)"
-    
+    @click="MovieDaCercare"
     class="btn btn-primary">Cerca</button>
+    <!-- al click del bottone richiamo la funzione MovieDaCercare -->
     </div>
   </div>
 </template>
@@ -26,7 +28,16 @@ export default {
     return{
       search:""
     }
-}
+  },
+  methods:{
+    /* funzione che richiamo per passare il parametro vmoldel search al padre richiamando la funzione del padre con nome Search per poi poter passare il parametro vmolde search al fratello  */
+    MovieDaCercare(){
+      this.$emit('Search', this.search);
+      /* emit per poter richiamare la funzione di prima */
+      this.search=""
+    }
+  }
+
 }
 </script>
 
