@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Card from '@/assets/components/Card.vue';
+import Card from './Card.vue';
 
 export default {
   name: 'Header',
@@ -22,7 +22,7 @@ export default {
   },
   props:{
     /* mi passo results che è un array che contiene l'array di film e l'array di serie tv*/
-    results: Array
+    results: Object
   },
   data(){
     return{

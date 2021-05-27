@@ -9,7 +9,7 @@ export default {
   name:'Card',
   props:{
     type: String,
-    titolo: Array
+    titolo: Object
   }
 }
 </script>
