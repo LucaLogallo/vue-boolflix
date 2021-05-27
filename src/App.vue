@@ -5,10 +5,17 @@
    <Header
    @startSearch="startSearch"
    />
-
+   <h1 v-if="results.movie.length > 0">Film trovati</h1>
    <!-- al main passerò l'array che contiene sia l'array dei film che quello delle serie tv -->
-   <Main
-   :results="results" 
+   <Film
+   :lista="results.movie" 
+   type='movie'
+   />
+
+   <h1 v-if="results.tv.length > 0">Serie Tv trovate</h1>
+   <Tv
+   :lista="results.tv" 
+   type='tv'
    />
   </div>
 </template>
@@ -16,14 +23,15 @@
 <script>
 import axios from 'axios';
 import Header from './components/Header';
-import Main from './components/Main';
-
+import Film from './components/Film';
+import Tv from './components/Tv';
 
 export default {
   name: 'App',
   components: {
     Header,
-    Main
+    Film,
+    Tv
   },
   data(){
     return{
@@ -61,7 +69,7 @@ export default {
     },
     startSearch(obj){ //funzione che ha in ingresso l'oggetto che contiene il text e il type della ricerca in base a quale bottone viene premuto tra film, serie tv ed entrambe
       /* console.log(obj) */ // ? log test
-
+      this.resetResults();
       if(obj.type === 'all'){
         /* se è tutto mi fai due chiamate */
         this.getAPI(obj.text,'movie');
@@ -70,7 +78,11 @@ export default {
         /* altrimenti prendo dall'oggetto il type selezionato */
         this.getAPI(obj.text,obj.type);
       }
-    }
+    },
+    resetResults(){
+      this.results.movie = [];
+      this.results.tv = [];
+    },
   },
   created(){
     /* this.getAPI('ciao','movie'); */ // ? log test
