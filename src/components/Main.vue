@@ -1,63 +1,41 @@
 <template>
-  <div>
-
-    <Movie 
-    v-for="movie in movies" :key="movie.id"
-    :movie="movie"
+  <div class="container">
+    <Card 
+    :titolo = "titolo"
+    type ='movie'
     />
-
+    <Card 
+    :titolo = "titolo"
+    type ='tv'
+    />
+    
   </div>
 </template>
 
 <script>
-/* importo axios */
-import axios from 'axios';
-
-import Movie from '@/components/Movie'
-
+import Card from '@/assets/components/Card.vue';
 
 export default {
-  name:'Main',
+  name: 'Header',
   components:{
-    Movie
+    Card
   },
   props:{
-    /* gli passo la stringa che ho preso dall'header nell'app.vue in modo tale che poi posso fare la chiamata api con la query su questa stringa */
-    search:String
+    /* mi passo results che è un array che contiene l'array di film e l'array di serie tv*/
+    results: Array
   },
   data(){
     return{
-      movies:[],
-      /* richiesta api */
-      api_url:'https://api.themoviedb.org/3/search/movie',
-      api_key : '04262bfdc3da02e7444840a6bf3015b1',
-      // ! error
-      ricerca: this.search
-      // ! /error
-    }
-  },
-  mounted(){
-    console.log(this.search)
-    axios.get(this.api_url,{
-      params:{
-        api_key:this.api_key,
-        // ! error
-        query: this.ricerca,
-        // ! /error
-        language:"it-IT"
+      titolo:{
+        'movie': 'Film trovati',
+        'tv': 'Serie TV trovate'
       }
     }
-    )
-    .then(res =>{
-      this.movies = res.data.results
-    })
-    .catch(err =>{
-      console.log(err)
-    })
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '@/assets/scss/general.scss';
 
 </style>

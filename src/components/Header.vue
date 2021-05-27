@@ -1,66 +1,70 @@
 <template>
-  <div class="wrap">
-    <div class="headerRight">
-      <img src="" alt="">
+  <div class="wrapper ">
+
+    <div class="container d-flex justify-content-center align-items-center">
+
+      <div class="m-2">
+        <input 
+        class="form-control p-2 rounded-pill"
+        v-model="textSearch"
+        type="text">
+      </div>
+
+      <div class="m-2">
+
+        <!-- al click passerò alla funzione startSearch un oggetto che conterrò due informazioni
+        text= al v-model dell'input 
+        type= tipo di cosa da ricercare tra (movie,tv ed entrambe)ù
+        quindi ripeterò l'emit per ogni click di ogni bottone cambiando in base al bottone il type
+        -->
+
+        <button 
+        @click="$emit('startSearch', {text:textSearch,type:'movie'})"
+        class="p-2 rounded-pill">CERCA FILM</button>
+      </div>
+
+      <div class="m-2">
+        <button 
+        @click="$emit('startSearch', {text:textSearch,type:'tv'})"
+        class="p-2 rounded-pill">CERCA SERIE TV</button>
+      </div>
+
+      <div class="m-2">
+        <button 
+        @click="$emit('startSearch', {text:textSearch,type:'all'})"
+        class="p-2 rounded-pill">CERCA TUTTO</button>
+      </div>
+
     </div>
 
-    <div class="headerRight">
-    <input type="text"
-    class="form-control"
-    placeholder="cerca"
-    v-model="search" 
-    @keyup.enter="MovieDaCercare"
-    >
-    <!-- al keyuip.enter richiamo la funzione MovieDaCercare -->
-    <button
-    @click="MovieDaCercare"
-    class="btn btn-primary">Cerca</button>
-    <!-- al click del bottone richiamo la funzione MovieDaCercare -->
-    </div>
   </div>
 </template>
 
 <script>
 
 export default {
-  name:'Header',
+  name: 'Header',
   data(){
     return{
-      search:""
-    }
-  },
-  methods:{
-    /* funzione che richiamo per passare il parametro vmoldel search al padre richiamando la funzione del padre con nome Search per poi poter passare il parametro vmolde search al fratello  */
-    MovieDaCercare(){
-      this.$emit('Search', this.search);
-      /* emit per poter richiamare la funzione di prima */
-      this.search=""
+      textSearch:''
     }
   }
-
 }
 </script>
 
-<style lang="scss" scoped>
-  .wrap{
-    height: 100px;
-    background-color: red;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    padding: 2%;
-    .headerRight{
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      input{
-        height: 25px;
-        margin: 10px;
-      }
-      button{
-        padding: 5px;
-      }
+<style lang="scss">
+@import '@/assets/scss/general.scss';
+.wrapper{
+  height: 70px;
+  background-color: darkslategray;
+  input{
+    border-color: red;
+  }
+  div{
+    button{
+      border-color: red;
+      color: red;
     }
   }
+}
 </style>
