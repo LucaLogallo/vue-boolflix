@@ -1,10 +1,10 @@
 <template>
-  <div class="p-3">
+  <div class="wrap">
 
-    <div class="flip-card m-3">
+    <div class="flip-card">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <img :src="'https://image.tmdb.org/t/p/w342' + card.poster_path" alt="">
+        <img :src="card.poster_path === null ? '@/assets/img/default.jpg' :'https://image.tmdb.org/t/p/w342' + card.poster_path" alt="">
       </div>
       <div class="flip-card-back">
         <h1>{{ card.title }}</h1> 
@@ -90,6 +90,9 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/general.scss';
 
+.wrap{
+  padding: 1px;
+}
 
 .flip-card {
   background-color: transparent;
@@ -106,7 +109,7 @@ export default {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(171,6,15,0.2);
 }
 
 .flip-card:hover .flip-card-inner {
@@ -132,7 +135,7 @@ export default {
 }
 
 .flip-card-back {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(171,6,15,0.8);
   color: white;
   transform: rotateY(180deg);
   overflow: scroll;

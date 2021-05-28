@@ -5,3 +5,66 @@
   margin: 0;
   padding: 0;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #ab060f #858585;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #858585;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ab060f;
+    border-radius: 10px;
+    border: 0px inset #ffffff;
+  }
+
+
+  /* style app */
+
+  .films,.tv{
+    text-shadow:  2px 3px  rgba(171,6,15,0.2);
+    color: #858585;
+  }
+
+  /* style body */
+
+  body{
+    background-color: #1b1b1b;
+  }
+
+
+
+  /* style header */
+
+  .container>*{
+    height: 100%;
+  }
+
+  .wrapper{
+    & button:hover{
+      color: #ffffff;
+    }
+  }
+
+  .search{
+    color: #858585;
+    cursor: pointer;
+    margin: 2%;
+    &:hover{
+      color: #ffffff;
+    }
+  }
+
+
+  
+

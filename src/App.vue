@@ -5,14 +5,14 @@
    <Header
    @startSearch="startSearch"
    />
-   <h1 v-if="results.movie.length > 0">Film trovati</h1>
+   <h1 class="films" v-if="results.movie.length > 0">Film trovati</h1>
    <!-- al main passerò l'array che contiene sia l'array dei film che quello delle serie tv -->
    <Film
    :lista="results.movie" 
    type='movie'
    />
 
-   <h1 v-if="results.tv.length > 0">Serie Tv trovate</h1>
+   <h1 class="tv" v-if="results.tv.length > 0">Serie Tv trovate</h1>
    <Tv
    :lista="results.tv" 
    type='tv'
@@ -93,4 +93,8 @@ export default {
 <style lang="scss">
 @import 'assets/scss/general.scss';
 
+#app{
+  background-color: #1b1b1b;
+  height: 100%;
+}
 </style>

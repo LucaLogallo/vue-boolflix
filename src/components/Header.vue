@@ -1,16 +1,24 @@
 <template>
   <div class="wrapper ">
 
-    <div class="container d-flex justify-content-center align-items-center">
+    <div class="container d-flex justify-content-between ">
 
-      <div class="m-2">
-        <input 
-        class="form-control p-2 rounded-pill"
+      <div class="m-2 d-flex align-items-center">
+        <input
+        v-if="flagSearch === true "
+        class="form-control p-2 rounded-pill "
         v-model="textSearch"
         type="text">
+        
       </div>
 
-      <div class="m-2">
+      <div class="d-flex justify-content-center align-items-center ">
+
+        <i 
+        @click="toggleSearch()"
+        class="search fas fa-search m-1 "></i>
+
+      <div class="m-2 ">
 
         <!-- al click passerò alla funzione startSearch un oggetto che conterrò due informazioni
         text= al v-model dell'input 
@@ -35,6 +43,8 @@
         class="p-2 rounded-pill">CERCA TUTTO</button>
       </div>
 
+      </div>
+
     </div>
 
   </div>
@@ -46,7 +56,13 @@ export default {
   name: 'Header',
   data(){
     return{
-      textSearch:''
+      textSearch:'',
+      flagSearch:false //uso questo flag per far mostrare o meno la barra di ricerca al click di una lente
+    }
+  },
+  methods:{
+    toggleSearch(){
+      this.flagSearch= !this.flagSearch
     }
   }
 }
@@ -54,16 +70,16 @@ export default {
 
 <style lang="scss">
 @import '@/assets/scss/general.scss';
+
 .wrapper{
   height: 70px;
-  background-color: darkslategray;
-  input{
-    border-color: red;
-  }
+  background-color: #1b1b1b;
+  
   div{
     button{
-      border-color: red;
-      color: red;
+      border: none;
+      background: none;
+      color: #bbbbbb;
     }
   }
 }
