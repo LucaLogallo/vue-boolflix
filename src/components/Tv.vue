@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container d-flex">
     <Card 
     v-for="card in lista" 
     :key="card.id"
