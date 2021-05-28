@@ -59,9 +59,9 @@ export default {
       })
         .then(res =>{
           this.results[type] = res.data.results //relults[type] dove type cambia in base al type dato in ingresso nella getAPI quindi se faccio this.getAPI(obj.text,'movie'); result['movie'] mentre se faccio this.getAPI(obj.text,'tv'); allora result['tv']. Così avrò due array differenti. Uno che contiene i film e uno le serie tv. se uno dei due è vuoto allora vuol dire che stamperò quello pieno altrimenti se tutti e due sono pieni vuol dire che la ricerca sarò fatta su entrambi
-          console.log(res.data);
-          console.log(res.data.results);
-          console.log(this.results[type]);
+          /* console.log(res.data); */  
+          /*  console.log(res.data.results); */
+          /* console.log(this.results[type]); */
         })
         .catch(err =>{
           console.log(err);

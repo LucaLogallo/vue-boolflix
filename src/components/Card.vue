@@ -1,10 +1,10 @@
 <template>
   <div class="wrap">
-
+    <!-- ('https://image.tmdb.org/t/p/w342' + card.poster_path) -->
     <div class="flip-card">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <img :src="card.poster_path === null ? '@/assets/img/default.jpg' :'https://image.tmdb.org/t/p/w342' + card.poster_path" alt="">
+        <img :src="img()" alt="">
       </div>
       <div class="flip-card-back">
         <h1>{{ card.title }}</h1> 
@@ -67,10 +67,17 @@
 </template>
 
 <script>
+import image from '@/assets/img/default.jpg'
+
 export default {
   name:'Card',
   props:{
     card: Object
+  },
+  data(){
+    return{
+      image:image
+    }
   },
   methods:{
     bandiere(){
@@ -81,6 +88,13 @@ export default {
       }
       else{
         return this.card.original_language;
+      }
+    },
+    img(){
+      if(this.card.poster_path === null){
+        return this.image
+      }else{
+        return 'https://image.tmdb.org/t/p/w342' + this.card.poster_path
       }
     }
   }
@@ -140,5 +154,7 @@ export default {
   transform: rotateY(180deg);
   overflow: scroll;
 }
+
+
 
 </style>

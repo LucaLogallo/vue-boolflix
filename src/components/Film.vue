@@ -1,5 +1,6 @@
 <template>
   <div class="container d-inline-flex">
+
     <Card 
     v-for="card in lista" 
     :key="card.id"
@@ -21,7 +22,9 @@ export default {
     type:String,
     lista:Array
   },
-  data(){
+  data: function () {
+    return{
+    }
   }
 }
 </script>
