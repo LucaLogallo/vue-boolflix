@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="carta">
     <!-- ('https://image.tmdb.org/t/p/w342' + card.poster_path) -->
     <div class="flip-card">
     <div class="flip-card-inner">
@@ -104,8 +104,11 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/general.scss';
 
-.wrap{
+.carta{
   padding: 1px;
+  display: flex;
+  justify-content: center;
+
 }
 
 .flip-card {

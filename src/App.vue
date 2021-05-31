@@ -8,12 +8,15 @@
    <h1 class="films" v-if="results.movie.length > 0">Film trovati</h1>
    <!-- al main passerò l'array che contiene sia l'array dei film che quello delle serie tv -->
    <Film
+   v-if="results.movie.length > 0"
+   id="FILM"
    :lista="results.movie" 
    type='movie'
    />
 
    <h1 class="tv" v-if="results.tv.length > 0">Serie Tv trovate</h1>
    <Tv
+   v-if="results.tv.length > 0"
    :lista="results.tv" 
    type='tv'
    />
