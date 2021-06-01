@@ -155,7 +155,7 @@ export default {
   background-color: rgba(171,6,15,0.8);
   color: white;
   transform: rotateY(180deg);
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 

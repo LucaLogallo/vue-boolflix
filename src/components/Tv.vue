@@ -23,7 +23,7 @@
     <!-- bottone per il successivo -->
     <button class="next"
     v-if="lista.length != 0"
-    @click="nextCard">
+    @click="nextCard()">
     <i class="fas fa-arrow-right"></i>
     </button>
     <!-- /bottone per il successivo  -->
@@ -34,8 +34,10 @@
     v-if="lista.length != 0"
   >
     <i
-    :class="index === indexCard ? 'active' : null"
-    v-for="index in lista" :key="index" class="fas fa-circle"></i>
+    @click="indexCard = index"
+    
+    v-for="index in lista" :key="index" class="active fas fa-circle">
+    </i>
   </div>
 
   </div>
@@ -129,6 +131,7 @@ export default {
   display: inline;
   margin: 10px;
   color: rgb(171,6,15) ;
+  cursor: pointer;
 }
 
 i.active{

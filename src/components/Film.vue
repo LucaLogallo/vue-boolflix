@@ -17,6 +17,10 @@
     @click="nextCard">
     <i class="fas fa-arrow-right"></i>
     </button>
+
+    <div class="counter">
+      <span style="color:white">{{indexCard + 1}}/{{lista.length}}</span>
+    </div>
   </div>
 </template>
 
@@ -83,5 +87,12 @@ export default {
 
 .fa-arrow-right,.fa-arrow-left{
   font-size: 50px;
+}
+
+.counter{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom : -50px;
 }
 </style> 
